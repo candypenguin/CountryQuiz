@@ -7,4 +7,64 @@
         android:layout_height="match_parent"
         tools:context=".Quiz">
 
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline8"
+                                          android:orientation="horizontal"
+                                          app:layout_constraintGuide_percent="0.95"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline9"
+                                          android:orientation="horizontal"
+                                          app:layout_constraintGuide_percent="0.5"/>
+    <TableLayout
+            android:layout_width="0dp"
+            android:layout_height="190dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/guideline10" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline8" android:id="@+id/tableLayout">
+
+        <TableRow android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:id="@+id/QuestionTableU"
+        >
+            <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/Answer1"
+                    android:layout_weight="1" android:text="スペイン" android:onClick="answer"/>
+            <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/Answer2"
+                    android:layout_weight="1" android:text="フランス" android:onClick="answer"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:id="@+id/QuestiontableD">
+            <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/Answer3"
+                    android:layout_weight="1" android:text="ロシア" android:onClick="answer"/>
+            <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/Answer4"
+                    android:layout_weight="1" android:text="オランダ" android:onClick="answer"/>
+        </TableRow>
+    </TableLayout>
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" app:srcCompat="@drawable/spain"
+            android:id="@+id/Question" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline9"
+            android:background="@android:color/black" android:padding="1dp"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline10"
+                                          android:orientation="horizontal"
+                                          app:layout_constraintGuide_percent="0.6"/>
+    <TextView
+            android:text="この写真から連想される国はどこ？"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/textView" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/Question" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout" android:textSize="24sp"/>
 </android.support.constraint.ConstraintLayout>

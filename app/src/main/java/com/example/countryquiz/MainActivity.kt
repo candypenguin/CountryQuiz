@@ -11,10 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Question.init()
+
         val startButton = findViewById<Button>(R.id.StartButton)
         startButton.setOnClickListener{
             //遷移先に送るデータ
             val intent  = Intent(this, Quiz::class.java)
+            intent.putExtra("Question", Question.getQuiz(0))
             startActivity(intent)
         }
     }
