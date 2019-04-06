@@ -29,18 +29,18 @@ class Result : AppCompatActivity() {
         nextButton.setOnClickListener {
             quiz = Question.getQuiz(quiz!!.q_num + 1)
             if (quiz != null) {
-                val intent  = Intent(this, Quiz::class.java)
-                intent.putExtra("Question", quiz)
-                startActivity(intent)
+                val intentQuiz  = Intent(this, Quiz::class.java)
+                intentQuiz.putExtra("Question", quiz)
+                startActivity(intentQuiz)
             } else {
-                finish()
+                val intentFinish = Intent(this, MainActivity::class.java)
+                startActivity(intentFinish)
             }
         }
 
-        val intentQuiz = intent
-        if (intentQuiz != null) {
-            quiz = intentQuiz.getSerializableExtra("Quiz") as Question
-            correct = intentQuiz.getBooleanExtra("Answer", true)
+        if (intent != null) {
+            quiz = intent.getSerializableExtra("Quiz") as Question
+            correct = intent.getBooleanExtra("Answer", true)
             show()
         }
 

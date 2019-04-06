@@ -10,7 +10,7 @@ import android.widget.TextView
 
 class Quiz : AppCompatActivity() {
 
-    var buttons: Array<Button> = arrayOf()
+    var buttons: Array<Button>? = null
     var quiz: Question? = null
     var Question: ImageView? = null
 
@@ -20,13 +20,10 @@ class Quiz : AppCompatActivity() {
 
         // 画面上のウィジェットを取得しておく
         Question = findViewById<ImageView?>(R.id.Question)
-        buttons[0] = findViewById(R.id.Answer1)
-        buttons[1] = findViewById(R.id.Answer2)
-        buttons[2] = findViewById(R.id.Answer3)
-        buttons[3] = findViewById(R.id.Answer4)
+        buttons = arrayOf(findViewById(R.id.Answer1),findViewById(R.id.Answer2),
+            findViewById(R.id.Answer3),findViewById(R.id.Answer4))
 
         // データを受け取る
-        val intent = intent
         if (intent != null) {
             quiz = intent.getSerializableExtra("Question") as Question
             show()
@@ -49,10 +46,10 @@ class Quiz : AppCompatActivity() {
             if (view.id == buttons!![i].id) {
                 if (i == quiz!!.answer_index) {
                     intentResult.putExtra("Answer",true)
-                    startActivity(intent)
+                    startActivity(intentResult)
                 } else {
                     intentResult.putExtra("Answer",false)
-                    startActivity(intent)
+                    startActivity(intentResult)
                 }
             }
         }
