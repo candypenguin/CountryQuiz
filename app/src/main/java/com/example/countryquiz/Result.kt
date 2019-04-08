@@ -50,6 +50,10 @@ class Result : AppCompatActivity() {
             spot!!.setImageResource(quiz!!.image)
             answer!!.text = quiz!!.commentary
 
+            if(quiz!!.q_num == 4){
+                nextButton.text = "終了"
+            }
+
             if(correct){
                 result!!.text = "正解"
             }else{

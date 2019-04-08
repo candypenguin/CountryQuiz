@@ -18,12 +18,11 @@ class Quiz : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        // 画面上のウィジェットを取得しておく
         Question = findViewById<ImageView?>(R.id.Question)
         buttons = arrayOf(findViewById(R.id.Answer1),findViewById(R.id.Answer2),
             findViewById(R.id.Answer3),findViewById(R.id.Answer4))
 
-        // データを受け取る
+        // データの取得
         if (intent != null) {
             quiz = intent.getSerializableExtra("Question") as Question
             show()
